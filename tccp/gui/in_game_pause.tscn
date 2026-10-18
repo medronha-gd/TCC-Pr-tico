@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bbcsx4g6jqji2"]
+
+[ext_resource type="Script" uid="uid://bpbfm07p2blqy" path="res://gui/in_game_pause.gd" id="1_7aryx"]
+
+[node name="InGamePause" type="CanvasLayer" unique_id=1998804779 node_paths=PackedStringArray("resume", "quit")]
+script = ExtResource("1_7aryx")
+resume = NodePath("ButtonContainer/Resume")
+quit = NodePath("ButtonContainer/Quit")
+
+[node name="Panel" type="Panel" parent="." unique_id=1890637740]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=142672619]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -33.0
+offset_right = 35.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Resume" type="Button" parent="ButtonContainer" unique_id=954092628]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Resume"
+
+[node name="Quit" type="Button" parent="ButtonContainer" unique_id=621650923]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Sair"
