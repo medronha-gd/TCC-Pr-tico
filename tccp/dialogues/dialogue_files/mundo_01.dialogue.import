@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://c2gjuhbij250x"
+path="res://.godot/imported/mundo_01.dialogue-bff2aa314e186230a87f4af414b1ee23.tres"
+
+[deps]
+
+source_file="res://dialogues/dialogue_files/mundo_01.dialogue"
+dest_files=["res://.godot/imported/mundo_01.dialogue-bff2aa314e186230a87f4af414b1ee23.tres"]
+
+[params]
+
+defaults=true

@@ -2,11 +2,30 @@
 
 [ext_resource type="Script" uid="uid://ci618gs3j6tnj" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bjjnn1sfovaxt" path="res://player/animation_manager.gd" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://uioeamfbsroi" path="res://player/cavaleirodo_CAMINHADA-Sheet.png" id="4_g6k8r"]
 [ext_resource type="Texture2D" uid="uid://v3wluj0dn62n" path="res://player/walk.png" id="4_qjkh3"]
 [ext_resource type="PackedScene" uid="uid://bbcsx4g6jqji2" path="res://gui/in_game_pause.tscn" id="4_yw30f"]
 [ext_resource type="Script" uid="uid://dw5bbm2x7hbwl" path="res://player/grab_manager.gd" id="5_qjkh3"]
+[ext_resource type="Script" uid="uid://bw7fngis5hdpp" path="res://player/talk_manager.gd" id="7_boad6"]
+[ext_resource type="Script" uid="uid://c8ajfb13hjgw4" path="res://player/ladder_manager.gd" id="8_rgyib"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7oew"]
+atlas = ExtResource("4_g6k8r")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c35mf"]
+atlas = ExtResource("4_g6k8r")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65viv"]
+atlas = ExtResource("4_g6k8r")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7c3f"]
+atlas = ExtResource("4_g6k8r")
+region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g6k8r"]
 atlas = ExtResource("4_qjkh3")
@@ -60,6 +79,23 @@ region = Rect2(704, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_e7oew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c35mf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65viv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7c3f")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_g6k8r")
 }, {
 "duration": 1.0,
@@ -96,9 +132,12 @@ animations = [{
 "texture": SubResource("AtlasTexture_tqiix")
 }],
 "loop": 1,
-"name": &"walk",
+"name": &"walk_horse",
 "speed": 12.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(42, 29)
 
 [node name="Player" type="CharacterBody2D" unique_id=764724378]
 collision_layer = 2
@@ -109,6 +148,7 @@ script = ExtResource("1_oul6g")
 shape = SubResource("CapsuleShape2D_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1356735995]
+zoom = Vector2(2.5, 2.5)
 process_callback = 0
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
@@ -136,7 +176,7 @@ position = Vector2(0, 3)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"walk"
-frame_progress = 0.6025802
+frame_progress = 0.25262228
 
 [node name="GrabManager" type="Node" parent="." unique_id=1381257867]
 script = ExtResource("5_qjkh3")
@@ -160,6 +200,23 @@ collision_mask = 8
 [node name="Col" type="CollisionShape2D" parent="LadderDetector" unique_id=1602802943]
 visible = false
 shape = SubResource("CapsuleShape2D_onrkg")
+
+[node name="DialogueDetector" type="Area2D" parent="." unique_id=162038952]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueDetector" unique_id=472984378]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="TalkManager" type="Node" parent="." unique_id=1549833618 node_paths=PackedStringArray("dialogue_detector")]
+script = ExtResource("7_boad6")
+dialogue_detector = NodePath("../DialogueDetector")
+
+[node name="LadderManager" type="Node" parent="." unique_id=312150698 node_paths=PackedStringArray("ladder_detector")]
+script = ExtResource("8_rgyib")
+ladder_detector = NodePath("../LadderDetector")
 
 [connection signal="body_entered" from="LadderDetector" to="." method="_on_ladder_detector_body_entered"]
 [connection signal="body_exited" from="LadderDetector" to="." method="_on_ladder_detector_body_exited"]

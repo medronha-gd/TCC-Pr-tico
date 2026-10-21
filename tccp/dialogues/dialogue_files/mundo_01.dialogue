@@ -1,0 +1,9 @@
+~ start
+Isso é um teste
+
+[font_size=100][b]Esse texto é grande[/b][/font_size]
+
+[pulse freq=1.0 color=#ffffff40 ease=-2.0]texto pulsante[/pulse]
+
+[wave amp=50.0 freq=5.0 connected=1]texto wave[/wave].
+=> END

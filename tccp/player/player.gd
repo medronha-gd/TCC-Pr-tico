@@ -16,16 +16,19 @@ var climbing: bool = false
 var direction: Vector2 = Vector2.ZERO
 var vertical_dir: float
 
+var can_move: bool = true
+
 
 func _physics_process(delta: float) -> void:
 	_movement(delta)
-	
 	_jump()
-
+	
 	move_and_slide()
 
 
 func _movement(delta: float) -> void:
+	if not can_move:
+		return
 	var grounded: bool = is_on_floor()
 	
 	direction.x = Input.get_axis("left", "right")
@@ -57,12 +60,14 @@ func _movement(delta: float) -> void:
 	
 
 func _jump() -> void:
-		if Input.is_action_just_pressed("jump") and self.is_on_floor():
-			velocity.y = -jump_velocity
-			
-		elif Input.is_action_just_released("jump") and self.velocity.y < 0.0:
-			velocity.y = 0
+	if not can_move:
+		return
 
+	if Input.is_action_just_pressed("jump") and self.is_on_floor():
+		velocity.y = -jump_velocity
+			
+	elif Input.is_action_just_released("jump") and self.velocity.y < 0.0:
+		velocity.y = 0
 
 func _on_ladder_detector_body_entered(_body: Node2D) -> void:
 	on_ladder = true

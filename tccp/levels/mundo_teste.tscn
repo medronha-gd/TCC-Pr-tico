@@ -1,10 +1,14 @@
 [gd_scene format=4 uid="uid://c81rrgqsawk2o"]
 
 [ext_resource type="Texture2D" uid="uid://c6qbx7ub2tgqe" path="res://BG Image.png" id="1_bko6v"]
+[ext_resource type="Script" uid="uid://dbhtyjhj4mp2d" path="res://levels/mundo_teste.gd" id="1_txnv3"]
 [ext_resource type="TileSet" uid="uid://csru2lvqdqlsd" path="res://tilesets/new_tile_set.tres" id="2_7dbg0"]
 [ext_resource type="PackedScene" uid="uid://3k8sr6kw142k" path="res://player/player.tscn" id="3_ky3nt"]
 [ext_resource type="Texture2D" uid="uid://boou3dfp674hj" path="res://tilesets/1.png" id="4_ky3nt"]
 [ext_resource type="PackedScene" uid="uid://cwix5wxhd2dyv" path="res://entities/pushable_object.tscn" id="5_ky3nt"]
+[ext_resource type="Script" uid="uid://cqcur1rm7433g" path="res://addons/dialogue_manager/nodes/actionable/dialogue_actionable_2d.gd" id="7_txnv3"]
+[ext_resource type="Resource" uid="uid://c2gjuhbij250x" path="res://dialogues/dialogue_files/mundo_01.dialogue" id="8_2yicm"]
+[ext_resource type="PackedScene" uid="uid://bq3cypawjai3x" path="res://components/chronometer.tscn" id="9_2yicm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_frcsv"]
 texture = ExtResource("4_ky3nt")
@@ -18,7 +22,11 @@ physics_layer_0/collision_layer = 8
 physics_layer_0/collision_mask = 0
 sources/5 = SubResource("TileSetAtlasSource_frcsv")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 33.13608
+
 [node name="MundoTeste" type="Node2D" unique_id=1918296287]
+script = ExtResource("1_txnv3")
 
 [node name="BackGround" type="Sprite2D" parent="." unique_id=1419162376]
 position = Vector2(805.99994, 170.99998)
@@ -43,3 +51,37 @@ position = Vector2(282, 341)
 
 [node name="PushObject2" parent="." unique_id=1032562007 instance=ExtResource("5_ky3nt")]
 position = Vector2(828, 143)
+
+[node name="DialogueActionable2D" type="Area2D" parent="." unique_id=457296776]
+unique_name_in_owner = true
+position = Vector2(535, 192)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("7_txnv3")
+dialogue_resource = ExtResource("8_2yicm")
+dialogue_cue = "start"
+metadata/_custom_type_script = "uid://cqcur1rm7433g"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueActionable2D" unique_id=642652157]
+shape = SubResource("CircleShape2D_yf5fn")
+
+[node name="Chronometer" parent="." unique_id=1125098370 instance=ExtResource("9_2yicm")]
+duration = 60.0
+
+[node name="L1" type="Label" parent="." unique_id=747355225]
+unique_name_in_owner = true
+offset_left = 292.0
+offset_top = 64.0
+offset_right = 577.0
+offset_bottom = 87.0
+text = "Esperando a metade do timer passar"
+
+[node name="L2" type="Label" parent="." unique_id=1391295858]
+unique_name_in_owner = true
+offset_left = 314.0
+offset_top = 100.0
+offset_right = 542.0
+offset_bottom = 123.0
+text = "Esperando o final do timer lol"
+
+[connection signal="body_entered" from="DialogueActionable2D" to="." method="_on_dialogue_actionable_2d_body_entered"]

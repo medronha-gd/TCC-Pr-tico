@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bq3cypawjai3x"]
+
+[ext_resource type="Script" uid="uid://s7nea5ejusch" path="res://components/chronometer.gd" id="1_qshyo"]
+
+[node name="Chronometer" type="Node" unique_id=1125098370 node_paths=PackedStringArray("main_timer", "half_timer")]
+script = ExtResource("1_qshyo")
+main_timer = NodePath("MainTimer")
+half_timer = NodePath("HalfTimer")
+
+[node name="MainTimer" type="Timer" parent="." unique_id=145931297]
+
+[node name="HalfTimer" type="Timer" parent="." unique_id=2013133423]
+
+[connection signal="timeout" from="MainTimer" to="." method="_on_main_timer_timeout"]
+[connection signal="timeout" from="HalfTimer" to="." method="_on_half_timer_timeout"]
