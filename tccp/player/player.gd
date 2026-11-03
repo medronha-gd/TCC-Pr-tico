@@ -2,11 +2,11 @@ class_name Player extends CharacterBody2D
 ## Controla Movimentação do Jogador
 
 
-var speed: float = 200
+var speed: float = 100
 var pull_speed: float = 100.0
 var acceleration: float = 0.1
 var deceleration: float = 0.1
-var jump_velocity: float = 400
+var jump_velocity: float = 200
 
 @onready var ladder_detector: Area2D = %LadderDetector
 
