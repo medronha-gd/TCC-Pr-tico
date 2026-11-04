@@ -6,6 +6,7 @@
 rough = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(16, 16)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6wtyo"]
 _surfaces = [{
@@ -31,6 +32,6 @@ lock_rotation = true
 shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="Sprite2D" type="MeshInstance2D" parent="." unique_id=360114184]
-scale = Vector2(0.15625, 0.15625)
+scale = Vector2(0.12500001, 0.12500001)
 mesh = SubResource("ArrayMesh_6wtyo")
 texture = ExtResource("1_6wtyo")

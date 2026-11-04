@@ -6,7 +6,7 @@ var speed: float = 100
 var pull_speed: float = 100.0
 var acceleration: float = 0.1
 var deceleration: float = 0.1
-var jump_velocity: float = 200
+var jump_velocity: float = 300
 
 @onready var ladder_detector: Area2D = %LadderDetector
 
