@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ckwvcxwjtnuy5"]
+
+[ext_resource type="Script" uid="uid://dsa7c1ha01ula" path="res://autoloads/scenes/fader.gd" id="1_rml4a"]
+
+[node name="Fader" type="CanvasLayer" unique_id=1149447712 node_paths=PackedStringArray("c_rect")]
+layer = 2
+script = ExtResource("1_rml4a")
+c_rect = NodePath("ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1741031853]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true

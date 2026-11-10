@@ -43,7 +43,7 @@ scale = Vector2(11.317708, 15.140625)
 texture = ExtResource("1_bko6v")
 
 [node name="Player" parent="." unique_id=764724378 instance=ExtResource("3_ky3nt")]
-position = Vector2(408, 210)
+position = Vector2(19, 375)
 
 [node name="Tiles" type="Node" parent="." unique_id=1562391434]
 

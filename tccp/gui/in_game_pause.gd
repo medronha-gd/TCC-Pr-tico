@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @export var resume: Button
 @export var quit: Button
+@export var restart: Button
 
 
 func _init() -> void:
@@ -16,7 +17,7 @@ func _ready() -> void:
 	
 	%ButtonContainer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
-	for button: Button in [resume, quit]:
+	for button: Button in [resume, quit, restart]:
 		button.pressed.connect(_on_button_pressed.bind(button))
 
 
@@ -29,6 +30,8 @@ func _on_button_pressed(button: Button) -> void:
 				JavaScriptBridge.eval("window.history.back()")
 			get_tree().quit()
 			# Retornar ao menu principal aqui
+		restart:
+			get_tree().reload_current_scene()
 
 func _unhandled_key_input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("ui_cancel"):

@@ -295,8 +295,9 @@ position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1356735995]
+unique_name_in_owner = true
 zoom = Vector2(2.5, 2.5)
-process_callback = 0
+limit_smoothed = true
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 drag_horizontal_enabled = true

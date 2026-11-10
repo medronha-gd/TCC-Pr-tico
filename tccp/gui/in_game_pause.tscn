@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bpbfm07p2blqy" path="res://gui/in_game_pause.gd" id="1_7aryx"]
 
-[node name="InGamePause" type="CanvasLayer" unique_id=1998804779 node_paths=PackedStringArray("resume", "quit")]
+[node name="InGamePause" type="CanvasLayer" unique_id=1998804779 node_paths=PackedStringArray("resume", "quit", "restart")]
 script = ExtResource("1_7aryx")
 resume = NodePath("ButtonContainer/Resume")
 quit = NodePath("ButtonContainer/Quit")
+restart = NodePath("ButtonContainer/Restart")
 
 [node name="Panel" type="Panel" parent="." unique_id=1890637740]
 unique_name_in_owner = true
@@ -40,3 +41,9 @@ text = "Resume"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Sair"
+
+[node name="Restart" type="Button" parent="ButtonContainer" unique_id=1475630804]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Restart
+"

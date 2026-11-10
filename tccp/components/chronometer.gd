@@ -1,4 +1,4 @@
-@icon("res://addons/icons/alarm_clock.svg")
+@icon("res://addons/icons/icon_time.png")
 extends Node
 
 @export var main_timer: Timer
@@ -7,9 +7,11 @@ extends Node
 @export_category("Main timer wait time")
 @export var duration: float
 
+@onready var half_duration = duration / 2.0
+
 func _ready() -> void:
 	main_timer.wait_time = duration
-	half_timer.wait_time = duration / 2 # Metade do main timer
+	half_timer.wait_time = half_duration # Metade do main timer
 	
 	for timer: Timer in self.get_children():
 		## Só instanciar esse Node na cena e ele começa sozinho

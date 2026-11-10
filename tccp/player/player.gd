@@ -15,6 +15,7 @@ func _physics_process(delta: float) -> void:
 	_jump()
 	
 	move_and_slide()
+	
 
 
 func _movement(delta: float) -> void:

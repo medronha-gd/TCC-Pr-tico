@@ -1,5 +1,5 @@
 extends Area2D
-## Detecta quando jogador entra na area de morte e o posiciona numa area segura, também emite sinais de saida e entrada de area para manejar animações
+## Detecta quando jogador entra na area de morte e o posiciona numa area segura
 
 @export_category("Referencia da posição de respawn")
 @export var respawn_point: Marker2D # O jogador vai reaparecer na posição desse Marker2D
@@ -18,7 +18,12 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 		Flags.can_move = false
 		Flags.in_killzone = true
 		
-		# Tocar fade-in
+		body.velocity = Vector2.ZERO
+		
+		Fader.fade(Fader.FadeType.FADE_IN_OUT)
+
+		
+		await Fader.finished
 		
 		body.global_position = respawn_point.global_position
 
