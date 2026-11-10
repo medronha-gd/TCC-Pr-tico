@@ -4,12 +4,29 @@
 [ext_resource type="Script" uid="uid://dbhtyjhj4mp2d" path="res://levels/mundo_teste.gd" id="1_txnv3"]
 [ext_resource type="TileSet" uid="uid://csru2lvqdqlsd" path="res://tilesets/new_tile_set.tres" id="2_7dbg0"]
 [ext_resource type="PackedScene" uid="uid://3k8sr6kw142k" path="res://player/player.tscn" id="3_ky3nt"]
+[ext_resource type="Texture2D" uid="uid://boou3dfp674hj" path="res://tilesets/1.png" id="4_pputc"]
 [ext_resource type="TileSet" uid="uid://dkad5jcynqfwa" path="res://escada.tres" id="5_2yicm"]
 [ext_resource type="PackedScene" uid="uid://cwix5wxhd2dyv" path="res://entities/pushable_object.tscn" id="5_ky3nt"]
 [ext_resource type="Script" uid="uid://cqcur1rm7433g" path="res://addons/dialogue_manager/nodes/actionable/dialogue_actionable_2d.gd" id="7_txnv3"]
 [ext_resource type="Resource" uid="uid://c2gjuhbij250x" path="res://dialogues/dialogue_files/mundo_01.dialogue" id="8_2yicm"]
 [ext_resource type="PackedScene" uid="uid://bq3cypawjai3x" path="res://components/chronometer.tscn" id="9_2yicm"]
 [ext_resource type="PackedScene" uid="uid://v5ys74nj8fcg" path="res://components/killlzone.tscn" id="11_84gu4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_84gu4"]
+texture = ExtResource("4_pputc")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_g4v7s"]
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 0
+sources/2 = SubResource("TileSetAtlasSource_84gu4")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 33.13608
