@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uioeamfbsroi"
-path="res://.godot/imported/cavaleirodo_CAMINHADA-Sheet.png-593b8deba7442447f27b15716a2158a2.ctex"
+uid="uid://drkyg1hglacc5"
+path="res://.godot/imported/melhorado.png-7655d561b91977b72d1a4e044c30e4aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/cavaleirodo_CAMINHADA-Sheet.png"
-dest_files=["res://.godot/imported/cavaleirodo_CAMINHADA-Sheet.png-593b8deba7442447f27b15716a2158a2.ctex"]
+source_file="res://levels/tete 2/melhorado.png"
+dest_files=["res://.godot/imported/melhorado.png-7655d561b91977b72d1a4e044c30e4aa.ctex"]
 
 [params]
 

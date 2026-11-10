@@ -1,6 +1,5 @@
 extends Node
 
-#const GRAB_SPEED := 200.0 # 100.0, 200 para puxar
 const MAX_GRAB_DISTANCE := 60.0 #60.0
 
 @onready var player: Player = $".."
@@ -40,8 +39,6 @@ func push_pull() -> void:
 		return
 
 	var direction := Input.get_axis("left", "right")
-	print(direction) # -1.0 left, 1.0 right
-	
 	
 	# -1 se o jogador está à esquerda do corpo; +1 se está à direita.
 	var side_of_player = sign(player.global_position.x - body.global_position.x)

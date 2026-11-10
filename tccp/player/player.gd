@@ -1,23 +1,14 @@
 class_name Player extends CharacterBody2D
 ## Controla Movimentação do Jogador
 
-
-var speed: float = 200
+var speed: float = 100
 var pull_speed: float = 100.0
 var acceleration: float = 0.1
 var deceleration: float = 0.1
-var jump_velocity: float = 400
-
-@onready var ladder_detector: Area2D = %LadderDetector
-
-var on_ladder: bool = false
-var climbing: bool = false
+var jump_velocity: float = 300
 
 var direction: Vector2 = Vector2.ZERO
 var vertical_dir: float
-
-var can_move: bool = true
-
 
 func _physics_process(delta: float) -> void:
 	_movement(delta)
@@ -27,22 +18,22 @@ func _physics_process(delta: float) -> void:
 
 
 func _movement(delta: float) -> void:
-	if not can_move:
+	if not Flags.can_move:
 		return
 	var grounded: bool = is_on_floor()
 	
 	direction.x = Input.get_axis("left", "right")
 	
-	if on_ladder:
+	if Flags.on_ladder:
 		vertical_dir = Input.get_axis("up","down")
 		if vertical_dir:
 			velocity.y = vertical_dir * speed
-			climbing = not grounded
+			Flags.climbing = not grounded
 		else:
 			velocity.y = move_toward(velocity.y, 0.0, speed)
 			
 			if grounded:
-				climbing = false
+				Flags.climbing = false
 	
 	elif not grounded:
 		velocity += get_gravity() * delta
@@ -51,8 +42,8 @@ func _movement(delta: float) -> void:
 		if Input.is_action_pressed("grab"):
 			velocity.x = direction.x * pull_speed 
 		
-		if on_ladder: climbing = not grounded
-		else: climbing = false
+		if Flags.on_ladder: Flags.climbing = not grounded
+		else: Flags.climbing = false
 		
 		velocity.x = move_toward(velocity.x, direction.x * speed, speed * acceleration)
 	else:
@@ -60,7 +51,7 @@ func _movement(delta: float) -> void:
 	
 
 func _jump() -> void:
-	if not can_move:
+	if not Flags.can_move:
 		return
 
 	if Input.is_action_just_pressed("jump") and self.is_on_floor():
@@ -68,10 +59,3 @@ func _jump() -> void:
 			
 	elif Input.is_action_just_released("jump") and self.velocity.y < 0.0:
 		velocity.y = 0
-
-func _on_ladder_detector_body_entered(_body: Node2D) -> void:
-	on_ladder = true
-
-
-func _on_ladder_detector_body_exited(_body: Node2D) -> void:
-	on_ladder = false

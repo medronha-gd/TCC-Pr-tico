@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv18o746pqd6y"
-path="res://.godot/imported/cavaleiro_descendo_do_cavalo-Sheet-Sheet.png-8dc62135157c7fd4f239a47a14c4fe9e.ctex"
+uid="uid://fi2ngy2gbtaa"
+path="res://.godot/imported/subida_escada-Sheet.png-52a04b79cba082b6139618ad5613f53a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/cavaleiro_descendo_do_cavalo-Sheet-Sheet.png"
-dest_files=["res://.godot/imported/cavaleiro_descendo_do_cavalo-Sheet-Sheet.png-8dc62135157c7fd4f239a47a14c4fe9e.ctex"]
+source_file="res://player/sprites/subida_escada-Sheet.png"
+dest_files=["res://.godot/imported/subida_escada-Sheet.png-52a04b79cba082b6139618ad5613f53a.ctex"]
 
 [params]
 

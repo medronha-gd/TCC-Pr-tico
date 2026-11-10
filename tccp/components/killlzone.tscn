@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://v5ys74nj8fcg"]
+
+[ext_resource type="Script" uid="uid://bxwbjmncoleps" path="res://components/killlzone.gd" id="1_g6ac2"]
+
+[node name="Killlzone" type="Area2D" unique_id=2072278641]
+collision_layer = 32
+collision_mask = 2
+input_pickable = false
+monitorable = false
+script = ExtResource("1_g6ac2")
